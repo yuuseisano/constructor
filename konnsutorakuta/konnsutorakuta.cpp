@@ -2,7 +2,7 @@
 
 struct PlayerSettings
 {
-	std::string Name;
+	char Name[256];
 	int HP;
 	int MP;
 	int ATK;
