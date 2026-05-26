@@ -2,6 +2,7 @@
 
 struct PlayerSettings
 {
+	std::string Name;
 	int HP;
 	int MP;
 	int ATK;
@@ -9,30 +10,29 @@ struct PlayerSettings
 	int SPD;
 };
 
-PlayerSettings hero = { 1000,100,100,50,10 };
+PlayerSettings hero = { "勇者", 1000,100,100,50,10 };
 
 class Player
 {
 
 public:
 
-	std::string Name;
 	PlayerSettings Settings;
 
 
 
 	Player(const Player& other) 
-		:Name(other.Name),Settings(other.Settings)
+		:Settings(other.Settings)
 	{
 	}
 	Player(std::string name, const PlayerSettings& settings)
-		:Name(name), Settings(settings)
+		: Settings(settings)
 	{
 	}
 
 };
 void Show(const Player& player) {
-	std::cout << "name: " << player.Name
+	std::cout << "name: " << player.Settings.Name
 		<< " HP:" << player.Settings.HP
 		<< " MP:" << player.Settings.MP
 		<< " ATK:" << player.Settings.ATK
@@ -42,7 +42,7 @@ void Show(const Player& player) {
 }
 
 int main()
-{
+		{
 
 	Player player("勇者", hero);
 
