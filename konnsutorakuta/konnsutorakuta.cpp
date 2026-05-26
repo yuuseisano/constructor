@@ -1,5 +1,16 @@
 ﻿#include <iostream>
 
+struct PlayerSettings
+{
+	int HP;
+	int MP;
+	int ATK;
+	int DEF;
+	int SPD;
+};
+
+PlayerSettings hero = { 1000,100,100,50,10 };
+
 class Player
 {
 
@@ -14,8 +25,13 @@ public:
 
 
 
+	Player(std::string name,const PlayerSettings& settings)
+		:Player(name, settings.HP, settings.MP, settings.ATK, settings.DEF, settings.SPD)
+	{
+	}
+
 	Player() 
-		:Player("Default",100)
+		:Player("Default")
 	{
 	}
 
@@ -42,10 +58,13 @@ void Show(const Player& player) {
 
 int main()
 {
+
 	Player player1;
 	Player player2("勇者", 200,0,10,5,1);
+	Player player3("勇者",hero);
 
 	Show(player1);
 	Show(player2);
+	Show(player3);
 }
 
